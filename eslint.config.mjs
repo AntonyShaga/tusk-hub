@@ -13,14 +13,14 @@ const eslintConfig = [
   ...compat.extends(
     "next/core-web-vitals",
     "next/typescript",
-    "plugin:prettier/recommended",
+    "plugin:prettier/recommended"
   ),
   {
     rules: {
       "prettier/prettier": [
         "error",
         {
-          printWidth: 90,
+          printWidth: 80,
           semi: true,
           singleQuote: false,
           trailingComma: "es5",

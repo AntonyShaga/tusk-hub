@@ -1,16 +1,16 @@
 import type { IProject } from "@/types/project.types";
 
-export const ProjectsData: IProject[] = [
+export const PROJECTS: IProject[] = [
   {
-    color: "bg-purple-600",
+    color: "bg-primary",
     name: "Landing Page",
   },
   {
-    color: " bg-pink-500",
+    color: " bg-pink-300",
     name: "Mobile App",
   },
   {
-    color: "bg-yellow-400",
+    color: "bg-yellow-300",
     name: "Dashboard",
   },
   {
@@ -18,7 +18,7 @@ export const ProjectsData: IProject[] = [
     name: "Flyer",
   },
   {
-    color: "bg-tale-500",
+    color: "bg-teal-500",
     name: "Branding",
   },
 ];
