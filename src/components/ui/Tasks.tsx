@@ -1,6 +1,7 @@
 import React from 'react'
 import type { ITask } from '@/types/task.types'
 import Image from 'next/image'
+import { ProgressBar } from '@/components/ui/ProgressBar'
 interface Props {
 	tasks: ITask
 }
@@ -11,7 +12,7 @@ export function Tasks({ tasks }: Props) {
 
 	return (
 		<div className={'bg-card rounded-xl p-3.5'}>
-			<div className={'flex items-center justify-between mb-2'}>
+			<div className={'flex items-start justify-between mb-3'}>
 				<div className={'flex items-start gap-3'}>
 					<div
 						className={
@@ -22,7 +23,7 @@ export function Tasks({ tasks }: Props) {
 					</div>
 					<div className={'w-full'}>
 						<span
-							className={'wrap-normal font-medium leading-tight opacity-90'}
+							className={'wrap-normal font-medium  leading-tight opacity-90'}
 						>
 							{tasks.title}
 						</span>
@@ -53,18 +54,20 @@ export function Tasks({ tasks }: Props) {
 				</div>
 			</div>
 
-			<div>
-				<span>{progress}%</span>
+			<div className="mb-4">
+				<ProgressBar progress={progress} />
 			</div>
+
 			<div className={'flex items-center justify-between'}>
-				<div className={'flex items-center gap-2'}>
-					<span className={'flex items-center gap-1 '}>
+				<div className={'flex items-center gap-4'}>
+					<span className={'flex items-center gap-1 text-sm '}>
+						{/*<p className={'opacity-40 w-16 h-16'}></p>*/}
 						{tasks.comments.length}
 					</span>
-					<span className={'flex items-center gap-1'}>
+					<span className={'flex items-center gap-1 text-sm'}>
 						{tasks.resources.length}
 					</span>
-					<span className={'flex items-center gap-1'}>
+					<span className={'flex items-center gap-1 text-sm'}>
 						{tasks.links.length}
 					</span>
 				</div>
