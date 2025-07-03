@@ -14,3 +14,5 @@ export interface ISubTask {
 	title: string
 	isCompleted: boolean
 }
+
+export type TTasksStatus = 'completed' | 'not-started' | 'in-progress'
