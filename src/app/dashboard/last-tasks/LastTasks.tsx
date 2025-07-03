@@ -1,4 +1,4 @@
-import React, { useMemo, useState } from 'react'
+import React, { useState } from 'react'
 import { TASKS } from '@/app/dashboard/last-tasks/last-tasks.data'
 import { Tasks } from '@/components/ui/Tasks'
 import type { TTasksSortBy, TTasksStatus } from '@/types/task.types'
