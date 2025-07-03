@@ -1,30 +1,20 @@
 import React, { useMemo, useState } from 'react'
 import { TASKS } from '@/app/dashboard/last-tasks/last-tasks.data'
 import { Tasks } from '@/components/ui/Tasks'
-import type { TTasksStatus } from '@/types/task.types'
+import type { TTasksSortBy, TTasksStatus } from '@/types/task.types'
 import { LastTasksFilter } from '@/app/dashboard/last-tasks/LastTasksFilter'
+import { LastTasksSort } from '@/app/dashboard/last-tasks/LastTasksSort'
+import { useFilteredTasks } from '@/hooks/useFilteredTasks'
 
 export function LastTasks() {
 	const [status, setStatus] = useState<TTasksStatus | null>(null)
-	const filteredTasks = useMemo(() => {
-		if (!status) return TASKS
-		switch (status) {
-			case 'not-started':
-				return TASKS.filter(task =>
-					task.subTasks.every(subTask => !subTask.isCompleted)
-				)
-			case 'in-progress':
-				return TASKS.filter(task =>
-					task.subTasks.some(subTask => !subTask.isCompleted)
-				)
-			case 'completed':
-				return TASKS.filter(task =>
-					task.subTasks.every(subTask => !subTask.isCompleted)
-				)
-			default:
-				return TASKS
-		}
-	}, [status])
+	const [sortByDueDate, setSortByDueDate] = useState<TTasksSortBy>('asc')
+	const filteredTasks = useFilteredTasks({
+		tasks: TASKS,
+		status,
+		sortByDueDate,
+	})
+
 	return (
 		<div>
 			<div className={'flex items-center justify-between mb-5'}>
@@ -34,10 +24,16 @@ export function LastTasks() {
 						({filteredTasks.length})
 					</span>
 				</h2>
-				<LastTasksFilter
-					status={status}
-					setStatus={setStatus}
-				/>
+				<div className={'flex gap-4'}>
+					<LastTasksFilter
+						status={status}
+						setStatus={setStatus}
+					/>
+					<LastTasksSort
+						sortByDueDate={sortByDueDate}
+						setSortByDueDate={setSortByDueDate}
+					/>
+				</div>
 			</div>
 
 			{filteredTasks.length ? (

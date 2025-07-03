@@ -16,3 +16,4 @@ export interface ISubTask {
 }
 
 export type TTasksStatus = 'completed' | 'not-started' | 'in-progress'
+export type TTasksSortBy = 'asc' | 'desc'
