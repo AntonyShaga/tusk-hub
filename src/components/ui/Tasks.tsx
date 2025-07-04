@@ -2,6 +2,8 @@ import React from 'react'
 import type { ITask } from '@/types/task.types'
 import Image from 'next/image'
 import { ProgressBar } from '@/components/ui/ProgressBar'
+import Link from 'next/link'
+import { Pages } from '@/config/pagest'
 interface Props {
 	tasks: ITask
 }
@@ -81,13 +83,14 @@ export function Tasks({ tasks }: Props) {
 					>
 						{/*<p className={'w-18 h-18'}></p>*/}+
 					</button>
-					<button
+					<Link
+						href={Pages.TASK_EDIT(tasks.id)}
 						className={
 							'border-primary text-primary hover:bg-primary/10 rounded-full border bg-white p-2 transition-colors'
 						}
 					>
 						++
-					</button>
+					</Link>
 				</div>
 			</div>
 		</div>

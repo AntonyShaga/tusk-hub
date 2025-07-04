@@ -27,8 +27,9 @@ export function ProgressBar({ progress }: Props) {
 		<div className="relative w-full h-12 rounded-full bg-primary/12 overflow-hidden ">
 			<div
 				className={cn(
-					'animate-stripes flex h-full cursor-default items-center justify-center rounded-full  bg-[length:56px_56px] font-medium text-white',
-					colorProgressBar
+					' flex h-full cursor-default items-center justify-center rounded-full  bg-[length:56px_56px] font-medium text-white',
+					colorProgressBar,
+					{ 'animate-stripes': progress < 100 }
 				)}
 				style={{
 					width: `${progress}%`,

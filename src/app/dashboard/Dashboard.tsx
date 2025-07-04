@@ -2,7 +2,7 @@
 import { Heading } from '@/components/ui/Heading'
 import { SearchField } from '@/components/ui/search-field/SearchField'
 import { ProjectStats } from '@/app/dashboard/project-stats/ProjectStats'
-import { ProjectsStatisticChart } from '@/app/dashboard/project-stats/prroject-chart/ProjectsStatisticChart'
+import { ProjectsStatisticChart } from '@/app/dashboard/prroject-chart/ProjectsStatisticChart'
 import { LastTasks } from '@/app/dashboard/last-tasks/LastTasks'
 
 export function Dashboard() {
